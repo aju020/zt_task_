@@ -61,7 +61,6 @@ async function main() {
   let shippingFee = 0;
   let giftWrapFee = 0;
   let maxQuantity=0;
-  let maxDiscount=0
   
 
   for (const product in cartItems) {
@@ -78,7 +77,7 @@ async function main() {
 
     if (quantity > 10) {
       const discount1 = (productTotal * 5) / 100;
-      if (discount1 > maxDiscount) {
+      if (discount1 > discountAmount) {
         discountAmount = discount1;
         discountName = 'bulk_5_discount';
       }
@@ -92,7 +91,7 @@ async function main() {
   //Other discount rules
   if (subtotal > 200) {
         const discount2=(subtotal * 10) / 100;
-        if (discount2 >discountAmount) {
+        if (discount2 > discountAmount) {
                 discountAmount = (subtotal * 10) / 100;
                 discountName = 'flat_10_discount';
         }    
